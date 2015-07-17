@@ -17,14 +17,22 @@
 $ wget "http://download.virtualbox.org/virtualbox/5.0.0/virtualbox-5.0_5.0.0-101573~Ubuntu~trusty_amd64.deb"
 # dpkg -i virtualbox-5.0_5.0.0-101573~Ubuntu~trusty_amd64.deb
 # apt-get -fy install
+
+## See https://downloads.chef.io/chef-dk
+$ wget "https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.6.2-1_amd64.deb"
+# dpkg -i chefdk_0.6.2-1_amd64.deb
+
 ## See http://www.vagrantup.com/downloads
 $ wget "https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.3_x86_64.deb"
 # dpkg -i vagrant_1.7.3_x86_64.deb
+
 $ vagrant plugin install vagrant-aws
 $ vagrant plugin install vagrant-env
-$ vagrant plugin install vagrant-omnibus
+$ vagrant plugin install vagrant-omnibus # for Chef
 ## Create .env with .env.example
 $ vim .env
+## Edit Berksfile
+$ vim Berksfile
 ## Edit Vagrantfile
 $ vim Vagrantfile
 ```

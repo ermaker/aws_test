@@ -2,6 +2,15 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
+  config.vm.provision :chef_solo do |chef|
+    chef.roles_path = "roles"
+    chef.add_role("server")
+  end
+
+  config.vm.provision :docker do |d|
+    d.run "nginx", args: "-v /vagrant/html/:/usr/share/nginx/html:ro -p 8080:80"
+  end
+
   config.vm.provider :aws do |aws,override|
     override.vm.box = "dummy"
     override.vm.box_url = "https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box"
@@ -19,13 +28,6 @@ Vagrant.configure("2") do |config|
     aws.instance_type = "t2.micro"
     aws.security_groups = "default_instance"
     aws.tags = {Name: 'Test with Vagrant'}
-  end
-
-  # config.vm.provision :chef_solo do |chef|
-  # end
-
-  config.vm.provision :docker do |d|
-    d.run "nginx", args: "-v /vagrant/html/:/usr/share/nginx/html:ro -p 80:80"
   end
 
   config.vm.provider "virtualbox" do |vb,override|
