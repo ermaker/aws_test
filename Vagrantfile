@@ -21,7 +21,11 @@ Vagrant.configure("2") do |config|
     aws.tags = {Name: 'Test with Vagrant'}
   end
 
-  config.vm.provision :chef_solo do |chef|
+  # config.vm.provision :chef_solo do |chef|
+  # end
+
+  config.vm.provision :docker do |d|
+    d.run "nginx", args: "-v /vagrant/html/:/usr/share/nginx/html:ro -p 80:80"
   end
 
   config.vm.provider "virtualbox" do |vb,override|
