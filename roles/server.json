@@ -4,6 +4,7 @@
   "json_class": "Chef::Role",
   "default_attributes": {},
   "run_list": [
-    "recipe[fail2ban]"
+    "recipe[fail2ban]",
+    "recipe[m::rvm]"
   ]
 }
