@@ -21,7 +21,6 @@ Vagrant.configure("2") do |config|
     aws.tags = {Name: 'Test with Vagrant'}
   end
 
-  # config.omnibus.chef_version = :latest
   config.vm.provision :chef_solo do |chef|
   end
 
