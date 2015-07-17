@@ -11,13 +11,18 @@
     1. Create key pair
     1. Download private key
   1. Create security groups
-1. Execute (on ubuntu 64bit)
+1. Execute (on Ubuntu 14.04 64bit)
 ```
+## See https://www.virtualbox.org/wiki/Linux_Downloads
+$ wget "http://download.virtualbox.org/virtualbox/5.0.0/virtualbox-5.0_5.0.0-101573~Ubuntu~trusty_amd64.deb"
+# dpkg -i virtualbox-5.0_5.0.0-101573~Ubuntu~trusty_amd64.deb
+# apt-get -fy install
 ## See http://www.vagrantup.com/downloads
 $ wget "https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.3_x86_64.deb"
 # dpkg -i vagrant_1.7.3_x86_64.deb
 $ vagrant plugin install vagrant-aws
 $ vagrant plugin install vagrant-env
+$ vagrant plugin install vagrant-omnibus
 ## Create .env with .env.example
 $ vim .env
 ## Edit Vagrantfile
