@@ -12,8 +12,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision :docker do |d|
     d.build_image "/vagrant/app/mshard_server", args: "-t mshard_server"
-    d.run "nginx", args: "-v /vagrant/html/:/usr/share/nginx/html:ro -p 80:80"
 
+    d.run "nginx", args: "-v /vagrant/html/:/usr/share/nginx/html:ro -p 80:80"
     d.run "mshard_server", args: [
       "-p 8080:80",
       *ENV.select {|k,v| k =~ /^MSHARD_/}.map do |k,v|
