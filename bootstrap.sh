@@ -19,3 +19,4 @@ fi
 vagrant plugin install vagrant-aws
 vagrant plugin install vagrant-env
 vagrant plugin install vagrant-omnibus
+vagrant plugin install vagrant-berkshelf
